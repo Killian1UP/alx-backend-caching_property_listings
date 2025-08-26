@@ -8,4 +8,4 @@ from .serializers import PropertySerializer
 def property_list(request):
     properties = Property.objects.all()
     serializer = PropertySerializer(properties, many=True)
-    return JsonResponse(serializer.data, safe=False)
+    return JsonResponse({"properties": serializer.data})
